@@ -53,8 +53,9 @@ export default function UCSBSubjectsTable({ subjects, currentUser }) {
             accessor: 'relatedDeptCode',
         },
         {
+            id: 'inactive',
             Header: 'Inactive',
-            accessor: 'inactive',
+            accessor: i => i.inactive.toString()
         },
     ];
 
