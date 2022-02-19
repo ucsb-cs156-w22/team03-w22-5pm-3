@@ -2,6 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
 ## Commands
 
 | Command            | What it does                                                                 |
@@ -49,6 +50,7 @@ There is more information on some of these later in the README file.
 | `package.json`           | Specfication/Configuration of node project       |
 | `README.md`              | This file (documentation)                        |
 | `stryker.conf.json`      | Configuration of Stryker mutation testing        |
+
 
 ## More information on various commands
 
