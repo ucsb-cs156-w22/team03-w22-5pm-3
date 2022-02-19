@@ -31,7 +31,7 @@ describe("CollegiateSubredditForm tests", () => {
 
         const { getByText, getByTestId } = render(
             <Router  >
-                <CollegiateSubredditForm initialCollegiateSubreddit={collegiateSubredditsFixtures.oneCollegiateSubreddit} />
+                <CollegiateSubredditForm initialCollegiateSubreddit={collegiateSubredditsFixtures.oneSubreddit} />
             </Router>
         );
         await waitFor(() => expect(getByTestId(/CollegiateSubredditForm-id/)).toBeInTheDocument());
