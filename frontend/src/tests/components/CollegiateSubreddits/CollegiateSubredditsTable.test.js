@@ -1,5 +1,5 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
-import { collegiateSubredditsFixtures } from "fixtures/collegiateSubredditsFixtures";
+import { collegiateSubredditsFixtures } from "fixtures/CollegiateSubredditsFixtures";
 import CollegiateSubredditsTable from "main/components/CollegiateSubreddits/CollegiateSubredditsTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";

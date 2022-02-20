@@ -1,7 +1,7 @@
 import React from "react";
 
 import CollegiateSubredditsTable from "main/components/CollegiateSubreddits/CollegiateSubredditsTable";
-import { collegiateSubredditsFixtures } from "fixtures/collegiateSubredditsFixtures";
+import { collegiateSubredditsFixtures } from "fixtures/CollegiateSubredditsFixtures";
 
 export default {
   title: "components/CollegiateSubreddits/CollegiateSubredditsTable",
