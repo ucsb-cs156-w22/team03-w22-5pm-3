@@ -25,6 +25,6 @@ const collegiateSubredditsFixtures = {
       subreddit: "berkeley",
     },
   ],
-};
+}
 
 export { collegiateSubredditsFixtures };
