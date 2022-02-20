@@ -30,3 +30,5 @@ const earthquakeFixtures = {
         }
     ]
 };
+
+export { earthquakeFixtures };
