@@ -9,8 +9,8 @@ import { onDeleteSuccess } from "main/utils/UCSBDateUtils";
 export default function EarthquakesTable({ earthquakes, currentUser }) {
     const navigate = useNavigate();
 
-    const editCallBack = (cell) => {
-        navigate('/earthquakes/edit/${cell.row.values.id}')
+    const editCallback = (cell) => {
+        navigate(`/earthquakes/edit/${cell.row.values.id}`)
     }
 
     const deleteMutation = useBackendMutation(
@@ -19,7 +19,7 @@ export default function EarthquakesTable({ earthquakes, currentUser }) {
         ["/api/earthquakes/all"]
     );
 
-    const deleteCallBack = async (cell) => { deleteMutation.mutate(cell); }
+    const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
     const columns = [
         {
@@ -45,8 +45,8 @@ export default function EarthquakesTable({ earthquakes, currentUser }) {
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallBack, "EarthquakesTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallBack, "EarthquakesTable"));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "EarthquakesTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "EarthquakesTable"));
     }
 
     // Stryker disable ArrayDeclaration : [columns] and [earthquakes] are performance optimization; mutation preserves correctness
