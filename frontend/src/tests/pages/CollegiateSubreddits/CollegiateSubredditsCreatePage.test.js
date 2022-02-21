@@ -2,7 +2,6 @@ import { render, waitFor, fireEvent } from "@testing-library/react";
 import CollegiateSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import CollegiateSubredditsForm from "main/components/CollegiateSubreddits/CollegiateSubredditForm";
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -61,7 +60,7 @@ describe("CollegiateSubredditsCreatePage tests", () => {
             subreddit: "UCSantaBarbara"
         };
 
-        axiosMock.onPost("/api/collegiatesubreddits/post").reply( 202, collegiatesubreddit);
+        axiosMock.onPost("/api/collegiateSubreddits/post").reply( 202, collegiatesubreddit);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -100,7 +99,7 @@ describe("CollegiateSubredditsCreatePage tests", () => {
         });
 
         expect(mockToast).toBeCalledWith("New collegiatesubreddit Created - id: 17 name: UCSB");
-        expect(mockNavigate).toBeCalledWith({ "to": "/collegiatesubreddits/list" });
+        expect(mockNavigate).toBeCalledWith({ "to": "/collegiateSubreddits/list" });
     });
 
 

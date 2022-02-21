@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export default function CollegiateSubredditsCreatePage() {
 
   const objectToAxiosParams = (collegiatesubreddit) => ({
-    url: "/api/collegiatesubreddits/post",
+    url: "/api/collegiateSubreddits/post",
     method: "POST",
     params: {
       name: collegiatesubreddit.name,
@@ -24,7 +24,7 @@ export default function CollegiateSubredditsCreatePage() {
     objectToAxiosParams,
      { onSuccess }, 
      // Stryker disable next-line all : hard to set up test for caching
-     ["/api/collegiatesubreddits/all"]
+     ["/api/collegiateSubreddits/all"]
      );
 
   const { isSuccess } = mutation
@@ -34,7 +34,7 @@ export default function CollegiateSubredditsCreatePage() {
   }
 
   if (isSuccess) {
-    return <Navigate to="/collegiatesubreddits/list" />
+    return <Navigate to="/collegiateSubreddits/list" />
   }
 
   return (
