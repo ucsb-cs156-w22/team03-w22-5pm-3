@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 
-function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Create" }) {
+function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Retrieve" }) {
 
     // Stryker disable all
     const {
@@ -22,10 +22,10 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Create"
     // Note that even this complex regex may still need some tweaks
 
     // Stryker disable next-line Regex
-    //const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+    const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
 
     // Stryker disable next-line all
-    //const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+    const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
 
     return (
 
@@ -46,7 +46,7 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Create"
             )}
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="distance">Distance</Form.Label>
+                <Form.Label htmlFor="distance">Distance in km (e.g. 100)</Form.Label>
                 <Form.Control
                     data-testid="EarthquakesForm-distance"
                     id="distance"
@@ -61,9 +61,25 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Create"
                 </Form.Control.Feedback>
             </Form.Group>
 
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="mag">Minimum Magnitude (e.g. 2.5)</Form.Label>
+                <Form.Control
+                    data-testid="EarthquakesForm-mag"
+                    id="mag"
+                    type="text"
+                    isInvalid={Boolean(errors.mag)}
+                    {...register("mag", {
+                        required: "Magnitude is required."
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.mag?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+
             <Button
                 type="retrieve"
-                data-testid="UCSBDateForm-submit"
+                data-testid="EarthquakesForm-retrieve"
             >
                 {buttonLabel}
             </Button>

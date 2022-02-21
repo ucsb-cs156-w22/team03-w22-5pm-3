@@ -5,7 +5,7 @@ import { earthquakeFixtures } from 'fixtures/earthquakeFixtures';
 
 export default {
     title: 'components/earthquakes/EarthquakesTable',
-    component: Earthquakes
+    component: EarthquakesTable
 };
 
 const Template = (args) => {

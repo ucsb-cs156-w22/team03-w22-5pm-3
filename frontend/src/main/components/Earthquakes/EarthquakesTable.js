@@ -44,10 +44,12 @@ export default function EarthquakesTable({ earthquakes, currentUser }) {
         }
     ];
 
+    /*
     if (hasRole(currentUser, "ROLE_ADMIN")) {
         columns.push(ButtonColumn("Edit", "primary", editCallback, "EarthquakesTable"));
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "EarthquakesTable"));
     }
+    */
 
     // Stryker disable ArrayDeclaration : [columns] and [earthquakes] are performance optimization; mutation preserves correctness
     const memoizedColumns = React.useMemo(() => columns, [columns]);
