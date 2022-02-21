@@ -15,8 +15,8 @@ import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 import StudentsIndexPage from "main/pages/Students/StudentsIndexPage";
 import StudentsCreatePage from "main/pages/Students/StudentsCreatePage";
 
-import UCSBSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
-import UCSBSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
+import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
+import CollegiateSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
