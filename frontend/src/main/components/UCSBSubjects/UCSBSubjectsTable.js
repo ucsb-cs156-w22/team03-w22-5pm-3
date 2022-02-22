@@ -2,7 +2,11 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 // import { toast } from "react-toastify";
 import { useBackendMutation } from "main/utils/useBackend";
+<<<<<<< HEAD
 import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBDateUtils"
+=======
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBSubjectUtils"
+>>>>>>> 4e1ed70cd3ff640f7ec175741d5b77ee0c9e1fbb
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -53,8 +57,14 @@ export default function UCSBSubjectsTable({ subjects, currentUser }) {
             accessor: 'relatedDeptCode',
         },
         {
+<<<<<<< HEAD
             Header: 'Inactive',
             accessor: 'inactive',
+=======
+            id: 'inactive',
+            Header: 'Inactive',
+            accessor: i => i.inactive.toString()
+>>>>>>> 4e1ed70cd3ff640f7ec175741d5b77ee0c9e1fbb
         },
     ];
 
