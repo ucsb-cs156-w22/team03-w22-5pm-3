@@ -79,14 +79,14 @@ function App() {
              {
           hasRole(currentUser, "ROLE_USER") && (
             <>
-              <Route exact path="/collegiatesubreddits/list" element={<CollegiateSubredditsIndexPage />} />
+              <Route exact path="/collegiateSubreddits/list" element={<CollegiateSubredditsIndexPage />} />
             </>
           )
         }
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
-              <Route exact path="/collegiatesubreddits/create" element={<CollegiateSubredditsCreatePage />} />
+              <Route exact path="/collegiateSubreddits/create" element={<CollegiateSubredditsCreatePage />} />
             </>
           )
         }
