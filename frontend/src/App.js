@@ -16,6 +16,8 @@ import StudentsCreatePage from "main/pages/Students/StudentsCreatePage";
 
 import EarthquakesIndexPage from "main/pages/Earthquakes/EarthquakesIndexPage";
 import EarthquakesCreatePage from "main/pages/Earthquakes/EarthquakesCreatePage";
+import UCSBSubjectsIndexPage from "main/pages/UCSBSubjects/UCSBSubjectsIndexPage";
+import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -81,6 +83,7 @@ function App() {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/earthquakes/list" element={<EarthquakesIndexPage />} />
+              <Route exact path="/ucsbsubjects/list" element={<UCSBSubjectsIndexPage />} />
             </>
           )
         }
@@ -88,6 +91,8 @@ function App() {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
               <Route exact path="/earthquakes/retrieve" element={<EarthquakesCreatePage />} />
+              <Route exact path="/ucsbsubjects/edit/:id" element={<UCSBSubjectsCreatePage />} />
+              <Route exact path="/ucsbsubjects/create" element={<UCSBSubjectsCreatePage />} />
             </>
           )
         }

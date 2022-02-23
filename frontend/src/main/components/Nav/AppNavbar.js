@@ -97,6 +97,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
             <Nav className="mr-auto">
               {
                 hasRole(currentUser, "ROLE_USER") && (
+                  <>
                   <NavDropdown title="Earthquakes" id="appnavbar-earthquakes-dropdown" data-testid="appnavbar-earthquakes-dropdown" >
                     <NavDropdown.Item href="/earthquakes/list" data-testid="appnavbar-earthquakes-list">List</NavDropdown.Item>
                     {
@@ -105,6 +106,15 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                       )
                     }
                   </NavDropdown>
+
+                  <NavDropdown title="UCSBSubjects" id="appnavbar-ucsbsubjects-dropdown" data-testid="appnavbar-ucsbsubjects-dropdown" >
+                    <NavDropdown.Item href="/ucsbsubjects/list" data-testid="appnavbar-ucsbsubjects-list">List</NavDropdown.Item>
+                    {
+                      hasRole(currentUser, "ROLE_ADMIN") && (
+                        <NavDropdown.Item href="/ucsbsubjects/create" data-testid="appnavbar-ucsbsubjects-create">Create</NavDropdown.Item>
+                      )
+                    }
+                  </NavDropdown> </>
                 )
               }
             </Nav>
