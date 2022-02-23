@@ -3,11 +3,10 @@ import { useBackend } from 'main/utils/useBackend';
 
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import EarthquakesTable from 'main/components/Earthquakes/EarthquakesTable';
-import EarthquakesPurge from 'main/components/Earthquakes/EarthquakesPurge'
 import { useCurrentUser } from 'main/utils/currentUser'
 import { toast } from "react-toastify";
-import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
+import { Button} from 'react-bootstrap';
 
 export default function EarthquakesIndexPage() {
 
@@ -24,12 +23,11 @@ export default function EarthquakesIndexPage() {
 
     const objectToAxiosParams = (earthquakes) => ({
       url: "/api/earthquakes/purge",
-      method: "POST",
-      params: {
-      }
+      method: "POST"
     });
   
     const onSuccess = (earthquakes) => {
+      console.log('On success')
       toast(`All records were successfully deleted`);
     }
   
@@ -40,21 +38,21 @@ export default function EarthquakesIndexPage() {
        ["/api/earthquakes/all"]
        );
   
-    const { isSuccess } = mutation
-  
     const onSubmit = async (data) => {
       mutation.mutate(data);
-    }
-  
-    if (isSuccess) {
-      return <Navigate to="/earthquakes/list" />
     }
 
   return (
     <BasicLayout>
       <div className="pt-2">
         <h1>Earthquakes</h1>
-        <EarthquakesPurge submitAction={onSubmit} />
+        <Button
+                type="purge"
+                onClick={onSubmit}
+                data-testid="EarthquakesPurge-purge"
+            >
+            Purge
+        </Button>
         <EarthquakesTable earthquakes={earthquakes} currentUser={currentUser} />
       </div>
     </BasicLayout>
