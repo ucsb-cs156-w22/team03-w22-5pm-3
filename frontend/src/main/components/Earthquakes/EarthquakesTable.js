@@ -9,17 +9,17 @@ import { onDeleteSuccess } from "main/utils/UCSBDateUtils";
 export default function EarthquakesTable({ earthquakes, currentUser }) {
     const navigate = useNavigate();
 
-    const editCallback = (cell) => {
-        navigate(`/earthquakes/edit/${cell.row.values.id}`)
-    }
+    // const editCallback = (cell) => {
+    //     navigate(`/earthquakes/edit/${cell.row.values.id}`)
+    // }
 
-    const deleteMutation = useBackendMutation(
-        cellToAxiosParamsDelete,
-        { onSuccess: onDeleteSuccess },
-        ["/api/earthquakes/all"]
-    );
+    // const deleteMutation = useBackendMutation(
+    //     cellToAxiosParamsDelete,
+    //     { onSuccess: onDeleteSuccess },
+    //     ["/api/earthquakes/all"]
+    // );
 
-    const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
+    // const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
     const columns = [
         {
@@ -28,19 +28,19 @@ export default function EarthquakesTable({ earthquakes, currentUser }) {
         },
         {
             Header: 'Title',
-            accessor: 'title',
+            accessor: 'properties.title',
         },
         {
             Header: 'Magnitude',
-            accessor: 'mag',
+            accessor: 'properties.mag',
         },
         {
             Header: 'Place',
-            accessor: 'place',
+            accessor: 'properties.place',
         },
         {
             Header: 'Time',
-            accessor: 'time',
+            accessor: 'properties.time',
         }
     ];
 
