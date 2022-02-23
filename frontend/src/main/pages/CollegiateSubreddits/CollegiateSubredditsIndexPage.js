@@ -14,6 +14,8 @@ export default function CollegiateSubredditsIndexPage() {
     []
   );
 
+
+
   return (
     <BasicLayout>
       <div className="pt-2">
