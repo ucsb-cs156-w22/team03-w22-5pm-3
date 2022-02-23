@@ -150,7 +150,6 @@ export default function AppNavbar({
             </Nav>
 
             <Nav className="mr-auto">
-<<<<<<< HEAD
               {
                 hasRole(currentUser, "ROLE_USER") && (
                   <>
@@ -173,30 +172,6 @@ export default function AppNavbar({
                   </NavDropdown> </>
                 )
               }
-=======
-              {hasRole(currentUser, "ROLE_USER") && (
-                <NavDropdown
-                  title="UCSBSubjects"
-                  id="appnavbar-ucsbsubjects-dropdown"
-                  data-testid="appnavbar-ucsbsubjects-dropdown"
-                >
-                  <NavDropdown.Item
-                    href="/ucsbsubjects/list"
-                    data-testid="appnavbar-ucsbsubjects-list"
-                  >
-                    List
-                  </NavDropdown.Item>
-                  {hasRole(currentUser, "ROLE_ADMIN") && (
-                    <NavDropdown.Item
-                      href="/ucsbsubjects/create"
-                      data-testid="appnavbar-ucsbsubjects-create"
-                    >
-                      Create
-                    </NavDropdown.Item>
-                  )}
-                </NavDropdown>
-              )}
->>>>>>> main
             </Nav>
 
             <Nav className="ml-auto">
