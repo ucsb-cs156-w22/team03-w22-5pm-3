@@ -18,6 +18,8 @@ import EarthquakesIndexPage from "main/pages/Earthquakes/EarthquakesIndexPage";
 import EarthquakesCreatePage from "main/pages/Earthquakes/EarthquakesCreatePage";
 import UCSBSubjectsIndexPage from "main/pages/UCSBSubjects/UCSBSubjectsIndexPage";
 import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
+import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
+import CollegiateSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -84,6 +86,7 @@ function App() {
             <>
               <Route exact path="/earthquakes/list" element={<EarthquakesIndexPage />} />
               <Route exact path="/ucsbsubjects/list" element={<UCSBSubjectsIndexPage />} />
+              <Route exact path="/collegiateSubreddits/list" element={<CollegiateSubredditsIndexPage />} />
             </>
           )
         }
@@ -93,6 +96,7 @@ function App() {
               <Route exact path="/earthquakes/retrieve" element={<EarthquakesCreatePage />} />
               <Route exact path="/ucsbsubjects/edit/:id" element={<UCSBSubjectsCreatePage />} />
               <Route exact path="/ucsbsubjects/create" element={<UCSBSubjectsCreatePage />} />
+              <Route exact path="/collegiateSubreddits/create" element={<CollegiateSubredditsCreatePage />} />
             </>
           )
         }
