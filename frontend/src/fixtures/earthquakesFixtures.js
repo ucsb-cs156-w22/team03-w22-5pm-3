@@ -1,4 +1,4 @@
-const earthquakeFixtures = {
+const earthquakesFixtures = {
     oneEarthquake: {
         "id": 1,
         "title": "M 2.2 - 10km ESE of Ojai, CA",
@@ -31,4 +31,4 @@ const earthquakeFixtures = {
     ]
 };
 
-export { earthquakeFixtures };
+export { earthquakesFixtures };

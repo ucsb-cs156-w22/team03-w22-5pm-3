@@ -1,7 +1,7 @@
 import React from 'react';
 
 import EarthquakesTable from "main/components/Earthquakes/EarthquakesTable";
-import { earthquakeFixtures } from 'fixtures/earthquakeFixtures';
+import { earthquakesFixtures } from 'fixtures/earthquakesFixtures';
 
 export default {
     title: 'components/earthquakes/EarthquakesTable',
@@ -23,5 +23,5 @@ Empty.args = {
 export const ThreeEarthquakes = Template.bind({});
 
 ThreeEarthquakes.args = {
-    earthquakes: earthquakeFixtures.threeEarthquakes
+    earthquakes: earthquakesFixtures.threeEarthquakes
 };

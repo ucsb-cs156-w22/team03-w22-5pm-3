@@ -1,5 +1,5 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
-import { earthquakeFixtures } from "fixtures/earthquakeFixtures";
+import { earthquakesFixtures } from "fixtures/earthquakesFixtures";
 import EarthquakesTable from "main/components/Earthquakes/EarthquakesTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -69,7 +69,7 @@ describe("UserTable tests", () => {
     const { getByText, getByTestId } = render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <EarthquakesTable earthquakes={earthquakeFixtures.threeEarthquakes} currentUser={currentUser} />
+          <EarthquakesTable earthquakes={earthquakesFixtures.threeEarthquakes} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
