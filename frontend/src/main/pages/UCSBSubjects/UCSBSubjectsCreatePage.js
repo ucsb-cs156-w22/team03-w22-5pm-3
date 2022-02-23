@@ -1,14 +1,13 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBDateForm from "main/components/UCSBSubjects/UCSBSubjectsForm";
+import UCSBSubjectsForm from "main/components/UCSBSubjects/UCSBSubjectsForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
-import UCSBSubjectsForm from "main/components/UCSBSubjects/UCSBSubjectsForm";
 
 export default function UCSBSubjectsCreatePage() {
 
   const objectToAxiosParams = (ucsbSubject) => ({
-    url: "/api/ucsbdates/post",
+    url: "/api/ucsbsubjects/post",
     method: "POST",
     params: {
       subjectCode: ucsbSubject.subjectCode,
@@ -16,7 +15,7 @@ export default function UCSBSubjectsCreatePage() {
       deptCode: ucsbSubject.deptCode,
       collegeCode: ucsbSubject.collegeCode,
       relatedDeptCode:ucsbSubject.relatedDeptCode,
-      Inactive:ucsbSubject.Inactive
+      inactive:ucsbSubject.inactive
     }
   });
 

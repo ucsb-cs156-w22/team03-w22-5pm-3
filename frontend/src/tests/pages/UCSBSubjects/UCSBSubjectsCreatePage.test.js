@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render ,waitFor,fireEvent} from "@testing-library/react";
 import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -101,7 +101,6 @@ describe("UCSBSubjectsCreatePage tests", () => {
 
         expect(axiosMock.history.post[0].params).toEqual(
             {
-                "id": 1,
                 "subjectCode": "1A",
                 "subjectTranslation": "1B",
                 "deptCode": "1C",
@@ -110,7 +109,7 @@ describe("UCSBSubjectsCreatePage tests", () => {
                 "inactive": "true"
         });
 
-        expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 subjectCode: 1A subjectTranslation: 1B deptCode: 1C collegeCode: 1D relatedDeptCode: 1E inactive: true");
+        expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 subjectCode: 1A");
         expect(mockNavigate).toBeCalledWith({ "to": "/ucsbsubjects/list" });
     });
 
