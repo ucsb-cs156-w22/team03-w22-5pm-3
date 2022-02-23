@@ -7,11 +7,7 @@ import { useCurrentUser } from "main/utils/currentUser";
 export default function CollegiateSubredditsIndexPage() {
   const currentUser = useCurrentUser();
 
-  const {
-    data: subreddits,
-    error: _error,
-    status: _status,
-  } = useBackend(
+  const { data: subreddits } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
     ["/api/collegiateSubreddits/all"],
     { method: "GET", url: "/api/collegiateSubreddits/all" },
