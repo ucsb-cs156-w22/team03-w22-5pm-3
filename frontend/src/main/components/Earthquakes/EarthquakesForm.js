@@ -21,11 +21,6 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Retriev
     // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
     // Note that even this complex regex may still need some tweaks
 
-    // Stryker disable next-line Regex
-    const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
-    // Stryker disable next-line all
-    const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
 
     return (
 
@@ -35,7 +30,7 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Retriev
                 <Form.Group className="mb-3" >
                     <Form.Label htmlFor="id">Id</Form.Label>
                     <Form.Control
-                        data-testid="EarthquakeForm-id"
+                        data-testid="EarthquakesForm-id"
                         id="id"
                         type="text"
                         {...register("id")}
@@ -62,18 +57,18 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Retriev
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="mag">Minimum Magnitude (e.g. 2.5)</Form.Label>
+                <Form.Label htmlFor="minMag">Minimum Magnitude (e.g. 2.5)</Form.Label>
                 <Form.Control
-                    data-testid="EarthquakesForm-mag"
-                    id="mag"
+                    data-testid="EarthquakesForm-minMag"
+                    id="minMag"
                     type="text"
-                    isInvalid={Boolean(errors.mag)}
-                    {...register("mag", {
+                    isInvalid={Boolean(errors.minMag)}
+                    {...register("minMag", {
                         required: "Magnitude is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.mag?.message}
+                    {errors.minMag?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
