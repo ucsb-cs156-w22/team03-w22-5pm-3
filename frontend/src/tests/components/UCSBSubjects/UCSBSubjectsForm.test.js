@@ -100,7 +100,7 @@ describe("UCSBSubjectsForm tests", () => {
         const deptCodeField = getByTestId("UCSBSubjectsForm-deptCode");
         const collegeCodeField = getByTestId("UCSBSubjectsForm-collegeCode");
         const relatedDeptCodeField = getByTestId("UCSBSubjectsForm-relatedDeptCode");
-        const inactiveFieled=getByTestId("UCSBSubjectsForm-inactive")
+        const inactiveFieled=getByTestId("UCSBSubjectsForm-inactive");
         const submitButton = getByTestId("UCSBSubjectsForm-submit");
 
         fireEvent.change(subjectCodeField, { target: { value: '1A' } });
