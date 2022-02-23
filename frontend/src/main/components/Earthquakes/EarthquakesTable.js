@@ -29,6 +29,7 @@ export default function EarthquakesTable({ earthquakes, currentUser }) {
         {
             Header: 'Title',
             accessor: 'properties.title',
+            link: true
         },
         {
             Header: 'Magnitude',
