@@ -63,7 +63,7 @@ describe("EarthquakesCreatePage tests", () => {
 
     };
 
-    axiosMock.onPost("/api/earthquakes/retrieve").reply( 202, earthquake );
+    axiosMock.onPost("/api/earthquakes/retrieve").reply( 201, earthquake );
 
     const { getByTestId } = render(
         <QueryClientProvider client={queryClient}>
@@ -74,34 +74,31 @@ describe("EarthquakesCreatePage tests", () => {
     );
 
     // issues needs to be fixed below:
-    // await waitFor(() => {
-    //     expect(getByTestId("EarthquakesForm-quarterYYYYQ")).toBeInTheDocument();
-    // });
+    await waitFor(() => {
+        expect(getByTestId("EarthquakesForm-distance")).toBeInTheDocument();
+    });
 
-    // const quarterYYYYQField = getByTestId("EarthquakesForm-quarterYYYYQ");
-    // const nameField = getByTestId("EarthquakesForm-name");
-    // const localDateTimeField = getByTestId("EarthquakesForm-localDateTime");
-    // const submitButton = getByTestId("EarthquakeForm-submit");
+    const distanceField = getByTestId("EarthquakesForm-distance");
+    const minMagField = getByTestId("EarthquakesForm-minMag");
+    const submitButton = getByTestId("EarthquakesForm-retrieve");
 
-    // fireEvent.change(quarterYYYYQField, { target: { value: '20221' } });
-    // fireEvent.change(nameField, { target: { value: 'Groundhog Day' } });
-    // fireEvent.change(localDateTimeField, { target: { value: '2022-02-02T00:00' } });
+    fireEvent.change(distanceField, { target: { value: '10' } });
+    fireEvent.change(minMagField, { target: { value: '2.5' } });
 
-    // expect(submitButton).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
 
-    // fireEvent.click(submitButton);
+    fireEvent.click(submitButton);
 
-    // await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
+    await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
-    // expect(axiosMock.history.post[0].params).toEqual(
-    //     {
-    //     "localDateTime": "2022-02-02T00:00",
-    //     "name": "Groundhog Day",
-    //     "quarterYYYYQ": "20221"
-    // });
+    expect(axiosMock.history.post[0].params).toEqual(
+        {
+        "distance": "10",
+        "minMag": "2.5"
+    });
 
-    // expect(mockToast).toBeCalledWith("New earthquake Created - id: 17 name: Groundhog Day");
-    // expect(mockNavigate).toBeCalledWith({ "to": "/earthquakes/list" });
+    expect(mockToast).toBeCalledWith("1 Earthquakes retreived");
+    expect(mockNavigate).toBeCalledWith({ "to": "/earthquakes/list" });
 });
 
 });
