@@ -30,7 +30,7 @@ export default function EarthquakesCreatePage() {
   });
 
   const onSuccess = (earthquakes) => {
-    toast(`it works!`);
+    toast(`${earthquakes.length} Earthquakes retrieved`);
   }
 
   const mutation = useBackendMutation(
