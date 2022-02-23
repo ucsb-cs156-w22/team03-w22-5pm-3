@@ -97,7 +97,7 @@ describe("EarthquakesCreatePage tests", () => {
         "minMag": "2.5"
     });
 
-    expect(mockToast).toBeCalledWith("1 Earthquakes retreived");
+    expect(mockToast).toBeCalledWith("1 Earthquakes retrieved");
     expect(mockNavigate).toBeCalledWith({ "to": "/earthquakes/list" });
 });
 
