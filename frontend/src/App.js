@@ -19,6 +19,8 @@ import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePa
 
 import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
 import CollegiateSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
+import EarthquakesIndexPage from "main/pages/Earthquakes/EarthquakesIndexPage";
+import EarthquakesCreatePage from "main/pages/Earthquakes/EarthquakesCreatePage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -130,6 +132,21 @@ function App() {
             />
           </>
         )}
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/earthquakes/list" element={<EarthquakesIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/earthquakes/retrieve" element={<EarthquakesCreatePage />} />
+            </>
+          )
+        }
+
       </Routes>
     </BrowserRouter>
   );
