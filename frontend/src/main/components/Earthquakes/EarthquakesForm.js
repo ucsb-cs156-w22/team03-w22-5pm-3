@@ -41,7 +41,7 @@ function EarthquakesForm({ initialEarthquake, submitAction, buttonLabel="Retriev
             )}
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="distance">Distance in km (e.g. 100)</Form.Label>
+                <Form.Label htmlFor="distance">Distance in km from Storke Tower (e.g. 100)</Form.Label>
                 <Form.Control
                     data-testid="EarthquakesForm-distance"
                     id="distance"
