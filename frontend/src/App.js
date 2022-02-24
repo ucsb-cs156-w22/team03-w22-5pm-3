@@ -14,16 +14,10 @@ import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 import StudentsIndexPage from "main/pages/Students/StudentsIndexPage";
 import StudentsCreatePage from "main/pages/Students/StudentsCreatePage";
 
-<<<<<<< HEAD
 import EarthquakesIndexPage from "main/pages/Earthquakes/EarthquakesIndexPage";
 import EarthquakesCreatePage from "main/pages/Earthquakes/EarthquakesCreatePage";
 import UCSBSubjectsIndexPage from "main/pages/UCSBSubjects/UCSBSubjectsIndexPage";
 import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
-=======
-import UCSBSubjectsIndexPage from "main/pages/UCSBSubjects/UCSBSubjectsIndexPage";
-import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
-
->>>>>>> main
 import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
 import CollegiateSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
 
@@ -73,7 +67,6 @@ function App() {
           </>
         )}
 
-<<<<<<< HEAD
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
@@ -126,72 +119,6 @@ function App() {
           )
         }
 
-=======
-        {hasRole(currentUser, "ROLE_USER") && (
-          <>
-            <Route
-              exact
-              path="/ucsbdates/list"
-              element={<UCSBDatesIndexPage />}
-            />
-          </>
-        )}
-        {hasRole(currentUser, "ROLE_ADMIN") && (
-          <>
-            <Route
-              exact
-              path="/ucsbdates/edit/:id"
-              element={<UCSBDatesEditPage />}
-            />
-            <Route
-              exact
-              path="/ucsbdates/create"
-              element={<UCSBDatesCreatePage />}
-            />
-          </>
-        )}
-        {hasRole(currentUser, "ROLE_USER") && (
-          <>
-            <Route
-              exact
-              path="/ucsbsubjects/list"
-              element={<UCSBSubjectsIndexPage />}
-            />
-          </>
-        )}
-        {hasRole(currentUser, "ROLE_ADMIN") && (
-          <>
-            <Route
-              exact
-              path="/ucsbsubjects/edit/:id"
-              element={<UCSBSubjectsCreatePage />}
-            />
-            <Route
-              exact
-              path="/ucsbsubjects/create"
-              element={<UCSBSubjectsCreatePage />}
-            />
-          </>
-        )}
-        {hasRole(currentUser, "ROLE_USER") && (
-          <>
-            <Route
-              exact
-              path="/collegiateSubreddits/list"
-              element={<CollegiateSubredditsIndexPage />}
-            />
-          </>
-        )}
-        {hasRole(currentUser, "ROLE_ADMIN") && (
-          <>
-            <Route
-              exact
-              path="/collegiateSubreddits/create"
-              element={<CollegiateSubredditsCreatePage />}
-            />
-          </>
-        )}
->>>>>>> main
       </Routes>
     </BrowserRouter>
   );
