@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FeatureProperties {
 
-  private int mag;
+  private double mag;
   private String place;
   private long time;
   private long updated;
@@ -19,8 +19,8 @@ public class FeatureProperties {
   private String url;
   private String detail;
   private int felt;
-  private int cdi;
-  private int mmi;
+  private double cdi;
+  private double mmi;
   private String alert;
   private String status;
   private int tsunami;
@@ -31,9 +31,9 @@ public class FeatureProperties {
   private String sources;
   private String types;
   private int nst;
-  private int dmin;
-  private int rms;
-  private int gap;
+  private double dmin;
+  private double rms;
+  private double gap;
   private String magType;
   private String type;
   private String title;
