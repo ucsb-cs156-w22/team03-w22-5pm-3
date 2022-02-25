@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CollegiateSubredditForm from "main/components/CollegiateSubreddits/CollegiateSubredditForm"
-import { collegiateSubredditsFixtures} from 'fixtures/CollegiateSubredditsFixtures';
+import { collegiateSubredditsFixtures} from 'fixtures/collegiateSubredditsFixtures';
 
 export default {
     title: 'components/CollegiateSubreddits/CollegiateSubredditForm',

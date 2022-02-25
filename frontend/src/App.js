@@ -67,58 +67,88 @@ function App() {
           </>
         )}
 
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/students/list" element={<StudentsIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/students/create" element={<StudentsCreatePage />} />
-            </>
-          )
-        }
-
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/ucsbdates/list" element={<UCSBDatesIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/ucsbdates/edit/:id" element={<UCSBDatesEditPage />} />
-              <Route exact path="/ucsbdates/create" element={<UCSBDatesCreatePage />} />
-            </>
-          )
-        }
-
-        // Added Earthquakes pages
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/earthquakes/list" element={<EarthquakesIndexPage />} />
-              <Route exact path="/ucsbsubjects/list" element={<UCSBSubjectsIndexPage />} />
-              <Route exact path="/collegiateSubreddits/list" element={<CollegiateSubredditsIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/earthquakes/retrieve" element={<EarthquakesCreatePage />} />
-              <Route exact path="/ucsbsubjects/edit/:id" element={<UCSBSubjectsCreatePage />} />
-              <Route exact path="/ucsbsubjects/create" element={<UCSBSubjectsCreatePage />} />
-              <Route exact path="/collegiateSubreddits/create" element={<CollegiateSubredditsCreatePage />} />
-            </>
-          )
-        }
-
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/ucsbdates/list"
+              element={<UCSBDatesIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/ucsbdates/edit/:id"
+              element={<UCSBDatesEditPage />}
+            />
+            <Route
+              exact
+              path="/ucsbdates/create"
+              element={<UCSBDatesCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/ucsbsubjects/list"
+              element={<UCSBSubjectsIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/ucsbsubjects/edit/:id"
+              element={<UCSBSubjectsCreatePage />}
+            />
+            <Route
+              exact
+              path="/ucsbsubjects/create"
+              element={<UCSBSubjectsCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/collegiateSubreddits/list"
+              element={<CollegiateSubredditsIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/collegiateSubreddits/create"
+              element={<CollegiateSubredditsCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/earthquakes/list"
+              element={<EarthquakesIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/earthquakes/retrieve"
+              element={<EarthquakesCreatePage />}
+            />
+          </>
+        )}
       </Routes>
     </BrowserRouter>
   );

@@ -51,17 +51,18 @@ describe("EarthquakesCreatePage tests", () => {
     );
   });
 
+
   test("when you fill in the form and hit submit, it makes a request to the backend", async () => {
 
     const queryClient = new QueryClient();
-    const earthquake = {
+    const earthquake = [{
         id: 1,
-        Title: "M 2.2 - 10km ESE of Ojai, CA",
+        title: "M 2.2 - 10km ESE of Ojai, CA",
         mag: 2.5,
         place: "10km ESE of Ojai, CA",
         time: 1644571919000 
 
-    };
+    }];
 
     axiosMock.onPost("/api/earthquakes/retrieve").reply( 201, earthquake );
 
@@ -82,7 +83,7 @@ describe("EarthquakesCreatePage tests", () => {
     const minMagField = getByTestId("EarthquakesForm-minMag");
     const submitButton = getByTestId("EarthquakesForm-retrieve");
 
-    fireEvent.change(distanceField, { target: { value: '10' } });
+    fireEvent.change(distanceField, { target: { value: '100' } });
     fireEvent.change(minMagField, { target: { value: '2.5' } });
 
     expect(submitButton).toBeInTheDocument();
@@ -90,14 +91,12 @@ describe("EarthquakesCreatePage tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
-
-    expect(axiosMock.history.post[0].params).toEqual(
-        {
-        "distance": "10",
+    expect(axiosMock.history.post[0].params).toEqual({
+        "distance": "100",
         "minMag": "2.5"
     });
 
-    expect(mockToast).toBeCalledWith("1 Earthquakes retrieved");
+    expect(mockToast).toBeCalledWith(`${axiosMock.history.post.length} Earthquakes retrieved`);
     expect(mockNavigate).toBeCalledWith({ "to": "/earthquakes/list" });
 });
 
