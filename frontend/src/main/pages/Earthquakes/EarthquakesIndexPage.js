@@ -20,45 +20,45 @@ export default function EarthquakesIndexPage() {
       { method: "GET", url: "/api/earthquakes/all" },
       []
     );
-    
-
-    const objectToAxiosParams = (earthquakes) => ({
-      url: "/api/earthquakes/purge",
-      method: "POST"
-    });
-  
-    const onSuccess = (earthquakes) => {
-      console.log('On success')
-      toast(`All records were successfully deleted`);
-    }
-  
-    const mutation = useBackendMutation(
-      objectToAxiosParams,
-       { onSuccess }, 
-       // Stryker disable next-line all : hard to set up test for caching
-       ["/api/earthquakes/all"]
-       );
-  
-    const onSubmit = async (data) => {
-      mutation.mutate(data);
-    }
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-      return (
-        <BasicLayout>
-        <div className="pt-2">
-          <h1>Earthquakes</h1>
-          <Button
-                    type="purge"
-                    onClick={onSubmit}
-                    data-testid="EarthquakesPurge-purge"
-                >
-                Purge
-            </Button>
-          <EarthquakesTable earthquakes={earthquakes} currentUser={currentUser} />
-        </div>
-      </BasicLayout>
-      )
+      const objectToAxiosParams = (earthquakes) => ({
+        url: "/api/earthquakes/purge",
+        method: "POST"
+      });
+    
+      const onSuccess = (earthquakes) => {
+        console.log('On success')
+        toast(`All records were successfully deleted`);
+      }
+    
+      const mutation = useBackendMutation(
+        objectToAxiosParams,
+         { onSuccess }, 
+         // Stryker disable next-line all : hard to set up test for caching
+         ["/api/earthquakes/all"]
+         );
+    
+      const onSubmit = async (data) => {
+        mutation.mutate(data);
+      }
+      
+        return (
+          <BasicLayout>
+          <div className="pt-2">
+            <h1>Earthquakes</h1>
+            <Button
+                      type="purge"
+                      onClick={onSubmit}
+                      data-testid="EarthquakesPurge-purge"
+                  >
+                  Purge
+              </Button>
+            <EarthquakesTable earthquakes={earthquakes} currentUser={currentUser} />
+          </div>
+        </BasicLayout>
+        )
+
     }
 
   return (
