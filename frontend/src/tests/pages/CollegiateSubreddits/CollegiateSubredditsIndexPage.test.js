@@ -5,7 +5,7 @@ import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/Colle
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { collegiateSubredditsFixtures } from "fixtures/collegiateSubredditsFixtures";
+import { collegiateSubredditsFixtures } from "fixtures/CollegiateSubredditsFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import mockConsole from "jest-mock-console";
