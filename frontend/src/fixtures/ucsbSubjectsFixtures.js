@@ -1,4 +1,14 @@
 const subjectFixtures = {
+    oneSubject: 
+        {
+            "id": 1,
+            "subjectCode": "1A",
+            "subjectTranslation": "1B",
+            "deptCode": "1C",
+            "collegeCode": "1D",
+            "relatedDeptCode": "1E",
+            "inactive": "true"
+        },
     twoSubjects: [
         {
             "id": 1,
