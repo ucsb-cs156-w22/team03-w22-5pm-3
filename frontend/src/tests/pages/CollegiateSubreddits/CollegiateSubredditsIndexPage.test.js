@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
@@ -150,7 +150,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
     ).not.toBeInTheDocument();
   });
 
-  /*test("test what happens when you click delete, admin", async () => {
+  test("test what happens when you click delete, admin", async () => {
     setupAdminUser();
 
     const queryClient = new QueryClient();
@@ -183,5 +183,5 @@ describe("CollegiateSubredditsIndexPage tests", () => {
     await waitFor(() => {
       expect(mockToast).toBeCalledWith("subreddit with id 1 deleted");
     });
-  });*/
+  });
 });
