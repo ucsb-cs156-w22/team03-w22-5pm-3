@@ -141,6 +141,7 @@ describe("EarthquakesIndexPage tests", () => {
 
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/earthquakes/all").reply(200, earthquakesFixtures.threeEarthquakes);
+        axiosMock.onDelete("/api/earthquakes/purge").reply(200, "All records were successfully deleted");
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -153,7 +154,8 @@ describe("EarthquakesIndexPage tests", () => {
         await waitFor(() => { expect(getByTestId(`${testId}-cell-row-2-col-id`)).toBeInTheDocument(); });
 
         expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); 
-
+        
+        
         const deleteButton = getByTestId(`EarthquakesPurge-purge`);
         expect(deleteButton).toBeInTheDocument();
        
