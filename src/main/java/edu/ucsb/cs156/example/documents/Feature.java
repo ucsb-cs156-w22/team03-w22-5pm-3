@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Feature {
 
+  private String _Id;
   private String type;
   private FeatureProperties properties;
   private String id;
