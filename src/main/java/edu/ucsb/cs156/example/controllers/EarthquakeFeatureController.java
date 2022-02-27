@@ -70,10 +70,10 @@ public class EarthquakeFeatureController extends ApiController {
     }
 
     @ApiOperation(value = "Get all Earthquake feature objects in the MongoDB collection", notes = "JSON return format documented here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php")
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/all")
-    public Iterable<Feature> getEarthquakeFeatures() throws JsonProcessingException {  
-        Iterable<Feature> feature = earthquakesCollection.findAll();
+    public List<Feature> getEarthquakeFeatures() throws JsonProcessingException {  
+        List<Feature> feature = earthquakesCollection.findAll();
         return feature;
     }
     
