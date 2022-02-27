@@ -30,7 +30,7 @@ export default function EarthquakesCreatePage() {
   });
 
   const onSuccess = (earthquakes) => {
-    console.log("The earthquakes length is:", earthquakes.length);
+    //console.log("The earthquakes length is:", earthquakes.length);
     toast(`${earthquakes.length} Earthquakes retrieved`);
   }
 

@@ -28,7 +28,7 @@ export default function EarthquakesIndexPage() {
   });
 
   const onSuccess = (earthquakes) => {
-    console.log('On success')
+    //console.log('On success')
     toast(`All records were successfully deleted`);
   }
 
