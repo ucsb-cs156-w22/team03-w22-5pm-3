@@ -109,7 +109,7 @@ describe("UCSBSubjectsCreatePage tests", () => {
                 "inactive": "true"
         });
 
-        expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 subjectCode: 1A");
+        expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 subject code: 1A");
         expect(mockNavigate).toBeCalledWith({ "to": "/UCSBSubjects/list" });
     });
 

@@ -20,6 +20,7 @@ import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePa
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
+import UCSBSubjectsEditPage from "main/pages/UCSBSubjects/UCSBSubjectsEditPage";
 
 
 function App() {
@@ -86,7 +87,7 @@ function App() {
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
-              <Route exact path="/ucsbsubjects/edit/:id" element={<UCSBSubjectsCreatePage />} />
+              <Route exact path="/ucsbsubjects/edit/:id" element={<UCSBSubjectsEditPage />} />
               <Route exact path="/ucsbsubjects/create" element={<UCSBSubjectsCreatePage />} />
             </>
           )
