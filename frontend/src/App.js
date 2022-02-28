@@ -25,6 +25,7 @@ import CollegiateSubredditsEditPage from "main/pages/CollegiateSubreddits/Colleg
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
+import UCSBSubjectsEditPage from "main/pages/UCSBSubjects/UCSBSubjectsEditPage";
 
 function App() {
   const { data: currentUser } = useCurrentUser();
@@ -105,7 +106,7 @@ function App() {
             <Route
               exact
               path="/ucsbsubjects/edit/:id"
-              element={<UCSBSubjectsCreatePage />}
+              element={<UCSBSubjectsEditPage />}
             />
             <Route
               exact
