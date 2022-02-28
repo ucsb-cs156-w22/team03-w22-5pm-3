@@ -151,27 +151,51 @@ export default function AppNavbar({
 
             <Nav className="mr-auto">
               {hasRole(currentUser, "ROLE_USER") && (
-                <NavDropdown
-                  title="UCSBSubjects"
-                  id="appnavbar-ucsbsubjects-dropdown"
-                  data-testid="appnavbar-ucsbsubjects-dropdown"
-                >
-                  <NavDropdown.Item
-                    href="/ucsbsubjects/list"
-                    data-testid="appnavbar-ucsbsubjects-list"
+                  <NavDropdown 
+                    title="Earthquakes" 
+                    id="appnavbar-earthquakes-dropdown" 
+                    data-testid="appnavbar-earthquakes-dropdown" 
                   >
-                    List
-                  </NavDropdown.Item>
-                  {hasRole(currentUser, "ROLE_ADMIN") && (
-                    <NavDropdown.Item
-                      href="/ucsbsubjects/create"
-                      data-testid="appnavbar-ucsbsubjects-create"
+                    <NavDropdown.Item 
+                      href="/earthquakes/list" 
+                      data-testid="appnavbar-earthquakes-list"
                     >
-                      Create
+                      List
                     </NavDropdown.Item>
-                  )}
-                </NavDropdown>
+                    {hasRole(currentUser, "ROLE_ADMIN") && (
+                        <NavDropdown.Item 
+                          href="/earthquakes/retrieve" 
+                          data-testid="appnavbar-earthquakes-retrieve"
+                        >
+                          Retrieve
+                        </NavDropdown.Item>
+                      )}
+                  </NavDropdown>
               )}
+            </Nav>
+
+            <Nav className="mr-auto">
+              {hasRole(currentUser, "ROLE_USER") && (
+                  <NavDropdown title="UCSBSubjects" 
+                    id="appnavbar-ucsbsubjects-dropdown" 
+                    data-testid="appnavbar-ucsbsubjects-dropdown" 
+                  >
+                    <NavDropdown.Item 
+                      href="/ucsbsubjects/list" 
+                      data-testid="appnavbar-ucsbsubjects-list"
+                    >
+                      List
+                    </NavDropdown.Item>
+                    {hasRole(currentUser, "ROLE_ADMIN") && (
+                        <NavDropdown.Item 
+                          href="/ucsbsubjects/create" 
+                          data-testid="appnavbar-ucsbsubjects-create"
+                        >
+                          Create
+                        </NavDropdown.Item>
+                    )}
+                  </NavDropdown>
+                )}
             </Nav>
 
             <Nav className="ml-auto">

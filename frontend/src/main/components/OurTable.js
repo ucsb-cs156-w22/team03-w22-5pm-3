@@ -46,7 +46,8 @@ export default function OurTable({ columns, data, testid = "testid" }) {
                     {...cell.getCellProps()}
                     data-testid={`${testid}-cell-row-${cell.row.index}-col-${cell.column.id}`}
                   >
-                    {cell.render('Cell')}
+                    {/* { (cell.column.link == true) ? <a href={row.original.properties.url}>{cell.render('Cell')}</a> : cell.render('Cell') } */
+                    cell.render("Cell")}
                   </td>
                 )
               })}
