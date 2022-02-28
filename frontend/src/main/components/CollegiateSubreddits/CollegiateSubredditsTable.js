@@ -4,7 +4,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/UCSBDateUtils";
+} from "main/utils/CollegiateSubredditsUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -12,19 +12,18 @@ export default function CollegiateSubredditsTable({ subreddits, currentUser }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/collegiatesubreddits/edit/${cell.row.values.id}`);
+    navigate(`/collegiateSubreddits/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
-
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/collegiatesubreddits/all"]
+    ["/api/collegiateSubreddits/all"]
   );
   // Stryker enable all
 
-  // Stryker disable all : TODO try to make a good test for this
+  // Stryker disable all : hard for reasons mentioned above
   const deleteCallback = async (cell) => {
     deleteMutation.mutate(cell);
   };
