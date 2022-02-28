@@ -44,7 +44,6 @@ export default function EarthquakesIndexPage() {
   }
 
   
-  if (hasRole(currentUser, "ROLE_ADMIN")) {
     
     return (
       <BasicLayout>
@@ -61,15 +60,4 @@ export default function EarthquakesIndexPage() {
       </div>
     </BasicLayout>
     )
-
-  }
-
-  return (
-    <BasicLayout>
-      <div className="pt-2">
-        <h1>Earthquakes</h1>
-        <EarthquakesTable earthquakes={earthquakes} currentUser={currentUser} />
-      </div>
-    </BasicLayout>
-  )
 }

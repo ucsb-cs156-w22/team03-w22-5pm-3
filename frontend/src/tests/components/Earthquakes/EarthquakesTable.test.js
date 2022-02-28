@@ -91,7 +91,7 @@ describe("UserTable tests", () => {
 
     expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
     expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-
+    expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
   });
 
