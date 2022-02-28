@@ -69,7 +69,7 @@ describe("UCSBSubjectsEditPage tests", () => {
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-            axiosMock.onGet("/api/UCSBSubjects", { params: { id: 17 } }).reply(200, {
+            axiosMock.onGet("/api/UCSBSubjects/", { params: { id: 1 } }).reply(200, {
                 id: 1,
                 subjectCode: "1A",
                 subjectTranslation: "1B",
@@ -78,7 +78,7 @@ describe("UCSBSubjectsEditPage tests", () => {
                 relatedDeptCode: "1E",
                 inactive: "true"
             });
-            axiosMock.onPut('/api/ucsbdates').reply(200, {
+            axiosMock.onPut('/api/UCSBSubjects/').reply(200, {
                 id: "1",
                 subjectCode: "1a",
                 subjectTranslation: "1b",
@@ -183,6 +183,7 @@ describe("UCSBSubjectsEditPage tests", () => {
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 1 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
+                id:1,
                 subjectCode: "1a",
                 subjectTranslation: "1b",
                 deptCode: "1c",

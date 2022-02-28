@@ -11,10 +11,10 @@ export default function UCSBSubjectsEditPage() {
   const { data: ucsbSubject, error: error, status: status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
-      [`/api/UCSBSubjects?id=${id}`],
+      [`/api/UCSBSubjects/?id=${id}`],
       {  // Stryker disable next-line all : GET is the default, so changing this to "" doesn't introduce a bug
         method: "GET",
-        url: `/api/UCSBSubjects`,
+        url: `/api/UCSBSubjects/`,
         params: {
           id
         }
@@ -23,12 +23,13 @@ export default function UCSBSubjectsEditPage() {
 
 
   const objectToAxiosPutParams = (ucsbSubject) => ({
-    url: "/api/UCSBSubjects",
+    url: "/api/UCSBSubjects/",
     method: "PUT",
     params: {
       id: ucsbSubject.id,
     },
     data: {
+        id:ucsbSubject.id,
         subjectCode: ucsbSubject.subjectCode,
         subjectTranslation: ucsbSubject.subjectTranslation,
         deptCode: ucsbSubject.deptCode,
@@ -46,7 +47,7 @@ export default function UCSBSubjectsEditPage() {
     objectToAxiosPutParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    [`/api/UCSBSubjects?id=${id}`]
+    [`/api/UCSBSubjects/?id=${id}`]
   );
 
   const { isSuccess } = mutation
