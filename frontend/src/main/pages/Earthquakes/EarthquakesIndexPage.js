@@ -24,7 +24,7 @@ export default function EarthquakesIndexPage() {
 
   const objectToAxiosParams = (earthquakes) => ({
     url: "/api/earthquakes/purge",
-    method: "DELETE"
+    method: "POST"
   });
 
   const onSuccess = (earthquakes) => {
