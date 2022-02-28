@@ -133,7 +133,7 @@ describe("CollegiateSubredditsTable tests", () => {
 
     await waitFor(() =>
       expect(mockedNavigate).toHaveBeenCalledWith(
-        "/collegiatesubreddits/edit/1"
+        "/collegiateSubreddits/edit/1"
       )
     );
   });

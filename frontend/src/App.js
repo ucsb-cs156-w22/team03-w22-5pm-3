@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "main/pages/HomePage";
 import ProfilePage from "main/pages/ProfilePage";
 import AdminUsersPage from "main/pages/AdminUsersPage";
@@ -17,14 +17,16 @@ import StudentsCreatePage from "main/pages/Students/StudentsCreatePage";
 import UCSBSubjectsIndexPage from "main/pages/UCSBSubjects/UCSBSubjectsIndexPage";
 import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
 
+import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
+import CollegiateSubredditsCreatePage from "main/pages/CollegiateSubreddits/CollegiateSubredditsCreatePage";
+import CollegiateSubredditsEditPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsEditPage";
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
 import UCSBSubjectsEditPage from "main/pages/UCSBSubjects/UCSBSubjectsEditPage";
 
-
 function App() {
-
   const { data: currentUser } = useCurrentUser();
 
   return (
@@ -32,67 +34,109 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/profile" element={<ProfilePage />} />
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && <Route exact path="/admin/users" element={<AdminUsersPage />} />
-        }
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/todos/list" element={<TodosIndexPage />} />
-              <Route exact path="/todos/create" element={<TodosCreatePage />} />
-              <Route exact path="/todos/edit/:todoId" element={<TodosEditPage />} />
-            </>
-          )
-        }
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <Route exact path="/admin/users" element={<AdminUsersPage />} />
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route exact path="/todos/list" element={<TodosIndexPage />} />
+            <Route exact path="/todos/create" element={<TodosCreatePage />} />
+            <Route
+              exact
+              path="/todos/edit/:todoId"
+              element={<TodosEditPage />}
+            />
+          </>
+        )}
 
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/students/list"
+              element={<StudentsIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/students/create"
+              element={<StudentsCreatePage />}
+            />
+          </>
+        )}
 
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/students/list" element={<StudentsIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/students/create" element={<StudentsCreatePage />} />
-            </>
-          )
-        }
-
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/ucsbdates/list" element={<UCSBDatesIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/ucsbdates/edit/:id" element={<UCSBDatesEditPage />} />
-              <Route exact path="/ucsbdates/create" element={<UCSBDatesCreatePage />} />
-            </>
-          )
-        }
-
-        {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/ucsbsubjects/list" element={<UCSBSubjectsIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/ucsbsubjects/edit/:id" element={<UCSBSubjectsEditPage />} />
-              <Route exact path="/ucsbsubjects/create" element={<UCSBSubjectsCreatePage />} />
-            </>
-          )
-        }
-
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/ucsbdates/list"
+              element={<UCSBDatesIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/ucsbdates/edit/:id"
+              element={<UCSBDatesEditPage />}
+            />
+            <Route
+              exact
+              path="/ucsbdates/create"
+              element={<UCSBDatesCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/ucsbsubjects/list"
+              element={<UCSBSubjectsIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/ucsbsubjects/edit/:id"
+              element={<UCSBSubjectsEditPage />}
+            />
+            <Route
+              exact
+              path="/ucsbsubjects/create"
+              element={<UCSBSubjectsCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/collegiateSubreddits/list"
+              element={<CollegiateSubredditsIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
+              path="/collegiateSubreddits/edit/:id"
+              element={<CollegiateSubredditsEditPage />}
+            />
+            <Route
+              exact
+              path="/collegiateSubreddits/create"
+              element={<CollegiateSubredditsCreatePage />}
+            />
+          </>
+        )}
       </Routes>
     </BrowserRouter>
   );
