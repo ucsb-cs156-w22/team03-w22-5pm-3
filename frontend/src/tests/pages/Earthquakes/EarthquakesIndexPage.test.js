@@ -141,7 +141,7 @@ describe("EarthquakesIndexPage tests", () => {
 
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/earthquakes/all").reply(200, earthquakesFixtures.threeEarthquakes);
-        axiosMock.onDelete("/api/earthquakes/purge").reply(200, "All records were successfully deleted");
+        axiosMock.onPost("/api/earthquakes/purge").reply(200, "All records were successfully deleted");
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>

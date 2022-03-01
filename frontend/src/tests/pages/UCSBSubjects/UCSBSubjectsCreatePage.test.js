@@ -64,7 +64,7 @@ describe("UCSBSubjectsCreatePage tests", () => {
             inactive: "true"
         };
 
-        axiosMock.onPost("/api/ucsbsubjects/post").reply( 202, ucsbSubject );
+        axiosMock.onPost("/api/UCSBSubjects/post").reply( 202, ucsbSubject );
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -109,8 +109,8 @@ describe("UCSBSubjectsCreatePage tests", () => {
                 "inactive": "true"
         });
 
-        expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 subjectCode: 1A");
-        expect(mockNavigate).toBeCalledWith({ "to": "/ucsbsubjects/list" });
+        expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 subject code: 1A");
+        expect(mockNavigate).toBeCalledWith({ "to": "/UCSBSubjects/list" });
     });
 
 
